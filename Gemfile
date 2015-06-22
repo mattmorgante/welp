@@ -6,6 +6,7 @@ gem 'rails', '4.2.1'
 gem 'awesome_print'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'paperclip', '4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
