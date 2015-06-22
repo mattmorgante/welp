@@ -16,11 +16,27 @@
               </tr>    
             </tbody>
           </table>
+          <%= link_to "Write a review", new_place_review_path(@place) %> 
         </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review-title"><%= @place.name %> </h1>
+        <p> <%= @place.description %> </p>
+
+        <% if @reviews.blank? %> 
+          <%= link_to "Write the first review!", new_place_review_path(@place), class: "btn btn-danger" %>
+        <% else %> 
+          <% @reviews.each do |r| %> 
+            <div class="reviews">
+              <p><%= r.rating %></p>
+              <p><%= r.comment %></p>
+            </div>
+          <% end %>
+        <% end %> 
       </div>
     </div>
   </div>
 </div> 
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<%= link_to 'Back', root_path %>

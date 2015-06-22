@@ -2,17 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   # only a signed in user can write a review
   before_action :authenticate_user!
-
-  # GET /reviews
-  # GET /reviews.json
-  def index
-    @reviews = Review.all
-  end
-
-  # GET /reviews/1
-  # GET /reviews/1.json
-  def show
-  end
+  before_action :set_place
 
   # GET /reviews/new
   def new
@@ -28,9 +18,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    @review.place_id = @place.id
 
     if @review.save
-      redirect_to @review
+      redirect_to @place
     else 
       render 'new'
     end 
@@ -65,6 +56,10 @@ class ReviewsController < ApplicationController
     def set_review
       @review = Review.find(params[:id])
     end
+
+    def set_place
+      @place = Place.find(params[:place_id])
+    end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
