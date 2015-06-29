@@ -1,0 +1,9 @@
+<div class="row"> 
+  <% @places.each do |p| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= link_to (image_tag p.image.url(:medium), class: 'image'), p %>
+      </div>
+    </div>
+  <% end %>
+</div> 
