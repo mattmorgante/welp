@@ -2,6 +2,14 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def search
+    if params[:search].present?
+      @places = Place.search(params[:search])
+    else 
+      @places = Places.all
+    end 
+  end
+
   # GET /places
   # GET /places.json
   def index

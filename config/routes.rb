@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'places#index'
   devise_for :users
   resources :places do 
+    collection do 
+      get 'search' 
+    end 
     resources :reviews, except: [:show, :index]
   end 
   # The priority is based upon order of creation: first created -> highest priority.
