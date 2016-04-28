@@ -3,4 +3,4 @@ TO DO:
 * impossible to sign out 
 * install java to do elastic search 
 * Re-format so there's more info on home page 
-* Re-formet show page - everything on the right 
+* Re-format show page - everything on the right 

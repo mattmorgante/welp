@@ -31,7 +31,6 @@ class PlacesController < ApplicationController
   # GET /places/new
   def new
     @place = current_user.places.build
-
   end
 
   # GET /places/1/edit
